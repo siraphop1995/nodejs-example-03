@@ -40,7 +40,7 @@ npm install --save
 Used following local setting for `.env` file:  
 ```
 PORT=3000
-MONGO_URL=mongodb://localhost:27017/express02
+MONGO_URL=mongodb://localhost:27017/express03
 ```
 ## <a name="usage"></a> Usage
 Test server locally
@@ -53,7 +53,7 @@ Routes:
 - `GET /user` - get all users
 - `POST /user` - create a user
 - `GET /user/:userId` - get a user
-- `POST /user/:userId` - update a user
+- `PATCH /user/:userId` - update a user
 - `DELETE /user/:userId` - delete a user
 
 ## Table
