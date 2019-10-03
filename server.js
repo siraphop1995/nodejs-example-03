@@ -1,11 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const cors = require('cors');
 const process = require('process');
-const errorHandler = require('./src/utils/errorHandler');
+const routes = require('./src')
 
-app = express();
+app = require('./app');
 port = process.env.PORT || 3000;
 
 mongoose.Promise = require('bluebird');
@@ -18,16 +15,11 @@ mongoose.connect(process.env.MONGO_URL, mongooseConfig, error => {
   console.log('Successfully connected to mongodb');
 });
 
-//Express middleware
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(errorHandler);
-
 //Model and router
-User = require('./src/models/userListModel');
-const userRouter = require('./src/routes/userRouter');
-app.use(userRouter);
+// User = require('./src/models/userListModel');
+// const userRouter = require('./src/routes/userRouter');
+// app.use(userRouter);
+app.use('/', routes)
 
 //Listen port
 app.listen(port, () => {
