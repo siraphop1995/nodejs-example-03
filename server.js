@@ -15,7 +15,7 @@ const mongooseConfig = {
 };
 mongoose.connect(process.env.MONGO_URL, mongooseConfig, error => {
   if (error) throw error;
-  console.log('Successfully connected');
+  console.log('Successfully connected to mongodb');
 });
 
 //Express middleware
