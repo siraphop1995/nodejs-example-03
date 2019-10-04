@@ -5,6 +5,7 @@ const routes = require('./src')
 app = require('./app');
 port = process.env.PORT || 3000;
 
+//Mongoose setting
 mongoose.Promise = require('bluebird');
 const mongooseConfig = {
   useNewUrlParser: true,
@@ -15,10 +16,7 @@ mongoose.connect(process.env.MONGO_URL, mongooseConfig, error => {
   console.log('Successfully connected to mongodb');
 });
 
-//Model and router
-// User = require('./src/models/userListModel');
-// const userRouter = require('./src/routes/userRouter');
-// app.use(userRouter);
+//Router
 app.use('/', routes)
 
 //Listen port
