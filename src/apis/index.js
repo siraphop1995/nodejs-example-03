@@ -12,62 +12,42 @@
 const _ = require('lodash');
 const User = require('../models/userListModel');
 
-exports.helloWorld = (req, res, next) => {
+exports.helloWorld = (req, res) => {
   res.send('Hello World!');
 };
 
-exports.getAllUsers = async (req, res, next) => {
+exports.getAllUsers = async (req, res) => {
   console.log('getAllUsers');
-  try {
-    const user = await User.find({}, null);
-    res.json(user);
-  } catch (err) {
-    next(err);
-  }
+  const user = await User.find({}, null);
+  res.json(user);
 };
 
-exports.addUser = async (req, res, next) => {
+exports.addUser = async (req, res) => {
   console.log('addUser');
-  try {
-    let newUser = new User(req.body);
-    const user = await newUser.save();
-    return res.json(user);
-  } catch (err) {
-    next(err);
-  }
+  let newUser = new User(req.body);
+  const user = await newUser.save();
+  return res.json(user);
 };
 
-exports.getAUser = async (req, res, next) => {
+exports.getAUser = async (req, res) => {
   console.log('getAUser');
-  try {
-    const user = await User.findById(req.params.userId);
-    res.json(user);
-  } catch (err) {
-    next(err);
-  }
+  const user = await User.findOne({ _id: req.params.userId });
+  res.json(user);
 };
 
-exports.updateUser = async (req, res, next) => {
+exports.updateUser = async (req, res) => {
   console.log('updateUser');
-  try {
-    let newUser = req.body;
-    const user = await User.findByIdAndUpdate(req.params.userId, newUser);
-    res.json(user);
-  } catch (err) {
-    next(err);
-  }
+  let newUser = req.body;
+  const user = await User.updateOne({ _id: req.params.userId }, newUser);
+  res.json(user);
 };
 
-exports.deleteUser = async (req, res, next) => {
+exports.deleteUser = async (req, res) => {
   console.log('deleteUser');
-  try {
-    const user = await User.findByIdAndRemove(req.params.userId);
-    const response = {
-      message: 'Delete user id: ' + req.params.userId + ' successfully',
-      id: user._id
-    };
-    res.json(response);
-  } catch (err) {
-    next(err);
-  }
+  const user = await User.deleteOne({ _id: req.params.adminId });
+  const response = {
+    message: 'Delete user id: ' + req.params.userId + ' successfully',
+    id: user._id
+  };
+  res.json(response);
 };
