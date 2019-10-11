@@ -10,7 +10,8 @@
  * for more details.
  */
 const _ = require('lodash');
-const User = require('../models/userListModel');
+// const User = require('../models/userListModel');
+const User = require('../db').userDocument
 
 exports.helloWorld = (req, res) => {
   res.send('Hello World!');

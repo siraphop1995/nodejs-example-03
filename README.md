@@ -27,8 +27,7 @@
 
 Docker mongo at port `27017`:  
 ```
-docker run -d --name test-mongo -p 27017:27017 mongo
-docker start test-mongo
+npm run db:start (auto start with npm start)
 ```
 PM2
 ```
