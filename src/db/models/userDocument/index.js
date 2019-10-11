@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema(
   {
     username: {
       type: String,
-      unique: true,
+      unique: false,
       Required: true
     },
     password: {
@@ -23,7 +23,7 @@ const userSchema = mongoose.Schema(
         id: Number
       }
     ],
-    data: subDocumentSchema,
+    data: [subDocumentSchema],
     metadata: {
       created: {
         type: Date,

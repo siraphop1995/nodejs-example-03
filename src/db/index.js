@@ -6,5 +6,4 @@
  */
 module.exports = {
   userDocument: require('./models/userDocument'),
-  // AnotherDocument: require('./model/anotherdocument')
 }
