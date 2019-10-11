@@ -19,11 +19,16 @@
 
 1.  loader
 
+2.  asyncWrapper
+
+3.  scripts
+
 ## <a name="prerequisite"></a> Prerequisite
 
 Docker mongo at port `27017`:  
 ```
-docker run -d --name mongo -p 27017:27017 mongo
+docker run -d --name test-mongo -p 27017:27017 mongo
+docker start test-mongo
 ```
 PM2
 ```

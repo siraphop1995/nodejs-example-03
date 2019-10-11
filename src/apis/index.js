@@ -44,7 +44,7 @@ exports.updateUser = async (req, res) => {
 
 exports.deleteUser = async (req, res) => {
   console.log('deleteUser');
-  const user = await User.deleteOne({ _id: req.params.adminId });
+  const user = await User.deleteOne({ _id: req.params.userId });
   const response = {
     message: 'Delete user id: ' + req.params.userId + ' successfully',
     id: user._id
