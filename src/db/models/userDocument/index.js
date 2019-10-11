@@ -34,7 +34,8 @@ const userSchema = mongoose.Schema(
         default: Date.now
       }
     }
-  }
+  },
+  { toJSON }
 );
 
 const preHooks = Object.keys(hooks.pre);
