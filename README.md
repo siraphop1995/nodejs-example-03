@@ -23,6 +23,10 @@
 
 3.  scripts
 
+4.  hook, method, tranform
+
+5.  subSchema
+
 ## <a name="prerequisite"></a> Prerequisite
 
 Docker mongo at port `27017`:  
