@@ -9,8 +9,6 @@
  * (list, get, create, update, delete). Consult mongoose documentation
  * for more details.
  */
-const _ = require('lodash');
-// const User = require('../models/userListModel');
 const User = require('../db').userDocument
 
 exports.helloWorld = (req, res) => {
