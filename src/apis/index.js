@@ -17,7 +17,6 @@ exports.helloWorld = (req, res) => {
 
 exports.getAllUsers = async (req, res) => {
   console.log('getAllUsers');
-  throw new Error('wa')
   const user = await User.find({}, null);
   res.json(user);
 };
