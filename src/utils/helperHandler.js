@@ -2,15 +2,15 @@
  * Try-catch asycn wrapper,
  * does not require function to be promise(async) to work
  */
-function asyncWrapper(fn) {
+asyncWrapper = fn => {
   return async (req, res, next) => {
     try {
-      return await fn.apply(null, [req, res, next]);
+      return await fn(req, res, next);
     } catch (err) {
       next(err);
     }
   };
-}
+};
 
 /**
  * Promise asycn wrapper,

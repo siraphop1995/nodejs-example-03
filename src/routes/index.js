@@ -4,19 +4,22 @@ module.exports = {
   'GET /': {
     middlewares: ['helloWorld']
   },
-  'GET /user': {
+  'GET /getAllUsers': {
     middlewares: ['getAllUsers']
   },
-  'POST /user': {
-    middlewares: ['addUser']
+  'POST /createUser': {
+    middlewares: ['createUser']
   },
-  'GET /user/:userId': {
-    middlewares: ['getAUser']
+  'GET /findUserById/:userId': {
+    middlewares: ['findUserById']
   },
-  'PATCH /user/:userId': {
+  'POST /findUser': {
+    middlewares: ['findUser']
+  },
+  'PATCH /updateUser/:userId': {
     middlewares: ['updateUser']
   },
-  'DELETE /user/:userId': {
+  'DELETE /deleteUser/:userId': {
     middlewares: ['deleteUser']
   }
 };
